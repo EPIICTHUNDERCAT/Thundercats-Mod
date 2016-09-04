@@ -15,6 +15,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class ClientProxy extends CommonProxy{
+	
 	public void preInit(FMLPreInitializationEvent preEvent) {
 		super.preInit(preEvent);
 		

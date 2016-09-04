@@ -22,15 +22,7 @@ public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent preEvent) {
 		register(preEvent);
 	
-		RenderingRegistry.registerEntityRenderingHandler(EntitySnarf.class, new RenderEntitySnarf(Minecraft.getMinecraft().getRenderManager()));
-
-		registerModEntityWithEgg(EntitySnarf.class, "Snarf", 0xff794d, 0xffaa00);
 		
-		EntityRegistry.addSpawn(EntitySnarf.class, 3, 43, 8, EnumCreatureType.CREATURE,
-				Biomes.TAIGA, Biomes.PLAINS, Biomes.FOREST, Biomes.SAVANNA, Biomes.BEACH,
-				Biomes.EXTREME_HILLS, Biomes.JUNGLE, Biomes.SAVANNA_PLATEAU, Biomes.SWAMPLAND,
-				Biomes.ICE_PLAINS, Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS,
-				Biomes.ROOFED_FOREST);
 	
 
 	}
@@ -43,7 +35,7 @@ public class CommonProxy {
 		
 	}
 	
-	private static int entityId;
+	/*private static int entityId;
 	
 
 	private void registerModEntityWithEgg(Class class1, String string, int i, int j) {
@@ -51,7 +43,7 @@ public class CommonProxy {
 	EntityRegistry.registerModEntity(class1, string, ++entityId, Thundercats.instance, 64, 3, true, i, j);
 		
 	}
-
+*/
 
 	private void register(FMLPreInitializationEvent preEvent) {
 
