@@ -37,6 +37,7 @@ public class EntityLiono extends EntityCreature {
 	}
 
 	protected void applyEntityAI() {
+		
 	}
 
 	protected void applyEntityAttributes() {
@@ -47,6 +48,7 @@ public class EntityLiono extends EntityCreature {
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2.0D);
 	}
 	protected void entityInit(){
+		super.entityInit();
 		
 	}
 
