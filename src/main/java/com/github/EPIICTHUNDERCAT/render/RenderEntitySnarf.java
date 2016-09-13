@@ -8,7 +8,6 @@ import net.minecraft.client.model.ModelWolf;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
@@ -31,29 +30,28 @@ public class RenderEntitySnarf extends RenderLiving<EntitySnarf> {
 	@Override
 	@Nonnull
 	protected ResourceLocation getEntityTexture(@Nonnull EntitySnarf entity) {
-		return SNARF_TEXTURES;
+		return entity.isTamed() ? TAMED_SNARF_TEXTURES : (entity.isAngry() ? ANRGY_SNARF_TEXTURES : SNARF_TEXTURES);
 	}
 
-}
+	public static class Factory implements IRenderFactory<EntitySnarf> {
 
-public class Factory implements IRenderFactory<EntitySnarf> {
-
-	@Override
-	public Render<? super EntitySnarf> createRenderFor(RenderManager manager) {
-		return new RenderEntitySnarf(manager);
+		@Override
+		public Render<? super EntitySnarf> createRenderFor(RenderManager manager) {
+			return new RenderEntitySnarf(manager);
+		}
 	}
-	/*
-	 * protected void preRenderCallBack(EntityLivingBase entity, float f) {
-	 * preRenderCallbackSnarf((EntitySnarf) entity, f); }
-	 * 
-	 * private void preRenderCallbackSnarf(EntitySnarf entity, float f) {
-	 * 
-	 * }
-	 */
-
-	/*
-	 * protected ResourceLocation getEntityTexture(EntitySnarf entity) { return
-	 * entity.isTamed() ? TAMED_SNARF_TEXTURES : (entity.isAngry() ?
-	 * ANRGY_SNARF_TEXTURES : SNARF_TEXTURES); }
-	 */
 }
+/*
+ * protected void preRenderCallBack(EntityLivingBase entity, float f) {
+ * preRenderCallbackSnarf((EntitySnarf) entity, f); }
+ * 
+ * private void preRenderCallbackSnarf(EntitySnarf entity, float f) {
+ * 
+ * }
+ */
+
+/*
+ * protected ResourceLocation getEntityTexture(EntitySnarf entity) { return
+ * entity.isTamed() ? TAMED_SNARF_TEXTURES : (entity.isAngry() ?
+ * ANRGY_SNARF_TEXTURES : SNARF_TEXTURES); }
+ */

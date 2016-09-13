@@ -44,6 +44,8 @@ import net.minecraft.world.biome.BiomeCache;
 import net.minecraft.world.biome.BiomePlains;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntitySnarf extends EntityWolf {
 	
@@ -69,12 +71,18 @@ public class EntitySnarf extends EntityWolf {
 	 */
 	@Override
 	public int getMaxSpawnedInChunk() {
-		return 2;
+		return 4;
 	}
 	  @Override
 	    @Nullable
 	    protected ResourceLocation getLootTable() {
 	        return LOOT;
+	    }
+	  @Override
+	  @SideOnly(Side.CLIENT)
+	    public float getTailRotation()
+	    {
+	        return this.isAngry() ? 1.5393804F : (this.isTamed() ? (0.55F - (this.getMaxHealth() - ((Float)this.dataManager.get(DATA_HEALTH_ID)).floatValue()) * 0.02F) * (float)Math.PI : ((float)Math.PI / 5F));
 	    }
 
 

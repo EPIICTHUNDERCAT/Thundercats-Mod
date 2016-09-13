@@ -1,19 +1,12 @@
 package com.github.EPIICTHUNDERCAT.proxy;
 
-import net.minecraft.entity.EntityList;
-import net.minecraft.init.Biomes;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import com.github.EPIICTHUNDERCAT.init.TCatsItems;
+import com.github.EPIICTHUNDERCAT.init.TCatsModEntities;
+
+import net.minecraft.init.Items;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
-
-import com.github.EPIICTHUNDERCAT.Thundercats;
-import com.github.EPIICTHUNDERCAT.mobs.EntitySnarf;
-import com.github.EPIICTHUNDERCAT.render.RenderEntitySnarf;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.*;
 
 public class CommonProxy {
 	
@@ -22,7 +15,8 @@ public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent preEvent) {
 		register(preEvent);
 	
-		
+	
+        TCatsModEntities.init();
 	
 
 	}
