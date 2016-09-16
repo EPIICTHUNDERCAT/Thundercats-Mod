@@ -1,4 +1,4 @@
-package com.github.EPIICTHUNDERCAT.mobs;
+package com.github.EPIICTHUNDERCAT.entity.mobs;
 
 import javax.annotation.Nullable;
 

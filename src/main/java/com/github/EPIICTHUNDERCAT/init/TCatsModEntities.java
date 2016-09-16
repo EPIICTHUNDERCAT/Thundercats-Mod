@@ -1,8 +1,8 @@
 package com.github.EPIICTHUNDERCAT.init;
 
 import com.github.EPIICTHUNDERCAT.Thundercats;
-import com.github.EPIICTHUNDERCAT.mobs.EntityLiono;
-import com.github.EPIICTHUNDERCAT.mobs.EntitySnarf;
+import com.github.EPIICTHUNDERCAT.entity.mobs.EntityLiono;
+import com.github.EPIICTHUNDERCAT.entity.mobs.EntitySnarf;
 import com.github.EPIICTHUNDERCAT.render.RenderEntityLiono;
 import com.github.EPIICTHUNDERCAT.render.RenderEntitySnarf;
 

@@ -18,7 +18,7 @@ public class TCatsItems {
 	// Items/Materials //
 		public static List<Item> items = new ArrayList();
 		
-		public static Item Spawn_Snarf = new TCatsItem("SPAWN_SNARF");
+		public static Item SWORD_OF_OMENS = new TCatsItem("SWORD_OF_OMENS");
 		
 		
 		

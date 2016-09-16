@@ -1,7 +1,7 @@
 package com.github.EPIICTHUNDERCAT.render;
 
-import com.github.EPIICTHUNDERCAT.mobs.EntityLiono;
-import com.github.EPIICTHUNDERCAT.mobs.LionoModel;
+import com.github.EPIICTHUNDERCAT.entity.mobs.EntityLiono;
+import com.github.EPIICTHUNDERCAT.entity.mobs.LionoModel;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
@@ -12,7 +12,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderEntityLiono extends RenderLiving<EntityLiono>{
 	
-	//private static final ResourceLocation LION_O_TEXTURES = new ResourceLocation();
+	private static final ResourceLocation LION_O_TEXTURES = new ResourceLocation("thundercats:textures/entity/liono.png");
 	
 	
 
@@ -32,7 +32,7 @@ public class RenderEntityLiono extends RenderLiving<EntityLiono>{
 	@Override
 	protected ResourceLocation getEntityTexture(EntityLiono entity) {
 		// TODO Auto-generated method stub
-		return null;
+		return LION_O_TEXTURES;
 	}
 	public static class Factory implements IRenderFactory<EntityLiono> {
 

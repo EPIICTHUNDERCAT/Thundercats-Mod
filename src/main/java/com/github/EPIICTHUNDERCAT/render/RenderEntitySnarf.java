@@ -2,7 +2,7 @@ package com.github.EPIICTHUNDERCAT.render;
 
 import javax.annotation.Nonnull;
 
-import com.github.EPIICTHUNDERCAT.mobs.EntitySnarf;
+import com.github.EPIICTHUNDERCAT.entity.mobs.EntitySnarf;
 
 import net.minecraft.client.model.ModelWolf;
 import net.minecraft.client.renderer.entity.Render;
