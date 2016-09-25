@@ -19,6 +19,7 @@ public class TCatsItems {
 		public static List<Item> items = new ArrayList();
 		
 		public static Item SWORD_OF_OMENS = new TCatsItem("SWORD_OF_OMENS");
+		public static Item NAVI_FLIGHT = new TCatsItem("NAVI_FLIGHT");
 		
 		
 		

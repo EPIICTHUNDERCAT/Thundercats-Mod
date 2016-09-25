@@ -4,6 +4,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.util.math.MathHelper;
 
 public class LionoModel extends ModelBase {
@@ -182,16 +183,14 @@ public class LionoModel extends ModelBase {
 	        this.Body.addChild(this.Arm2);
 	        this.Hair_1.addChild(this.Hair_2);
 	    }
-/*
+
 	@Override
 	public void render(Entity entity, float time, float limbSwingAmount, float ageInTicks, float HeadY, float headX, float Ytrans) {
 		this.setRotationAngles(time, limbSwingAmount, ageInTicks, HeadY, headX, Ytrans, entity);
-		if(this.isChild){
-			float div = 2.0F;
+
+		
 			GlStateManager.pushMatrix();
-			GlStateManager.scale(1.0f, 1.0F, 1.0F);
-			GlStateManager.translate(0, 1.25, 0);
-			
+			GlStateManager.translate(0, 1.25f, 0);
 			this.Arm1.render(Ytrans);
 			this.Arm2.render(Ytrans);
 			this.ArmBottom.render(Ytrans);
@@ -219,38 +218,9 @@ public class LionoModel extends ModelBase {
 			this.RestOfLeg.render(Ytrans);
 			this.RestOfLeg_1.render(Ytrans);
 			GlStateManager.popMatrix();	
-		}
-		else
-		{
-			this.Arm1.render(Ytrans);
-			this.Arm2.render(Ytrans);
-			this.ArmBottom.render(Ytrans);
-			this.ArmBottom_1.render(Ytrans);
-			this.ArmHand.render(Ytrans);
-			this.ArmHand_1.render(Ytrans);
-			this.Body.render(Ytrans);
-			this.Body1.render(Ytrans);
-			this.Body2.render(Ytrans);
-			this.Body3.render(Ytrans);
-			this.Body4.render(Ytrans);
-			this.Foot.render(Ytrans);
-			this.Foot_1.render(Ytrans);
-			this.Hair.render(Ytrans);
-			this.Hair_1.render(Ytrans);
-			this.Hair_2.render(Ytrans);
-			this.Hair_3.render(Ytrans);
-			this.Hair_4.render(Ytrans);
-			this.Head.render(Ytrans);
-			this.Leg1.render(Ytrans);
-			this.Leg2.render(Ytrans);
-			this.LegMuscle.render(Ytrans);
-			this.LegMuscle_1.render(Ytrans);
-			this.Neck.render(Ytrans);
-			this.RestOfLeg.render(Ytrans);
-			this.RestOfLeg_1.render(Ytrans);
-		}
-		
-	}*/
+	}
+	
+	/*
 	@Override
     public void render(Entity entity, float time, float limbSwingAmount, float ageInTicks, float HeadY, float headX, float Ytrans) {
         this.setRotationAngles(time, limbSwingAmount, ageInTicks, HeadY, headX, Ytrans, entity);
@@ -283,14 +253,32 @@ public class LionoModel extends ModelBase {
             this.RestOfLeg_1.render(Ytrans);
         
     }
+    */
 	public void setRotationAngles(float time, float limbSwingAmount, float ageInTicks, float headY, float headX, float scaleFactor, Entity entityIn)
     {
 		
-		this.Head.rotateAngleX = headX / (0.0F / (float)Math.PI);
-		this.Head.rotateAngleY = headY / (0.0F / (float)Math.PI);
-		/*this.Head.rotateAngleX = headX / (360F / (float)Math.PI);
-		this.Head.rotateAngleY = headY / (360F / (float)Math.PI);
-		*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
+		this.Head.rotateAngleX = headX / (0.0F);
+		this.Head.rotateAngleY = headY / (0.0F);
+		this.Head.rotateAngleX = headX / (360F);
+		this.Head.rotateAngleY = headY / (360F);
+		
 		
 		this.Body.rotateAngleX = ((float)Math.PI);
 		//this.Body.rotateAngleX = ((float)Math.PI / 2.0F);
@@ -300,6 +288,7 @@ public class LionoModel extends ModelBase {
 		
 		this.Arm1.rotateAngleX = MathHelper.cos(time * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
 		this.Arm2.rotateAngleX = MathHelper.cos(time * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+		*/
     }
 	//public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale){
 	/**
