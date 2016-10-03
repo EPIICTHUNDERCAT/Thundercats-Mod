@@ -20,6 +20,7 @@ public class TCatsItems {
 		
 		public static Item SWORD_OF_OMENS = new TCatsItem("SWORD_OF_OMENS");
 		public static Item NAVI_FLIGHT = new TCatsItem("NAVI_FLIGHT");
+		public static Item LIGHTNING = new TCatsItem("LIGHTNING");
 		
 		
 		

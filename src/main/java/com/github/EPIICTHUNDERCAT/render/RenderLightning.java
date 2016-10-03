@@ -1,5 +1,8 @@
 package com.github.EPIICTHUNDERCAT.render;
 
+import com.github.EPIICTHUNDERCAT.entity.EntityLightningRay;
+import com.github.EPIICTHUNDERCAT.init.TCatsItems;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderItem;
@@ -13,17 +16,19 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderLightning extends Render<EntityLightningRay>{
 	
-
+	private static final ResourceLocation LIGHTNING = new ResourceLocation(
+			"thundercats:textures/entity/Lighning/lightning.png");
 	
 	private Item item;
 	private RenderItem itemRenderer;
 	
-	protected RenderLightning(RenderManager renderManager) {
+	public RenderLightning(RenderManager renderManager, Item item) {
 		super(renderManager);
 		this.item = item;
 		this.itemRenderer = Minecraft.getMinecraft().getRenderItem();
 	
 	}
+	
 	@Override
 	public void doRender(EntityLightningRay entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		GlStateManager.pushMatrix();
@@ -54,13 +59,12 @@ public class RenderLightning extends Render<EntityLightningRay>{
 	}
 
 	private ItemStack getStackToRender(EntityLightningRay entity) {
-
-		return null;
+		return new ItemStack(TCatsItems.LIGHTNING);
 	}
 	@Override
 	protected ResourceLocation getEntityTexture(EntityLightningRay entity) {
 		
-		return null;
+		return LIGHTNING;
 	}
 	
 
