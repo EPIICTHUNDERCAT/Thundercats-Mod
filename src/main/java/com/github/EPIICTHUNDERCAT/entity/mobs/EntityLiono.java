@@ -9,6 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
@@ -36,6 +37,7 @@ public class EntityLiono extends EntityCreature {
 	protected void initEntityAI() {
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
+		this.tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, true));
 		this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		this.applyEntityAI();
 
@@ -50,7 +52,7 @@ public class EntityLiono extends EntityCreature {
 		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(35.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
 		this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7.0);
-		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(10.0D);
 	}
 
 	protected void entityInit() {
@@ -61,6 +63,11 @@ public class EntityLiono extends EntityCreature {
 	public EntityAgeable createChild(EntityAgeable ageable) {
 
 		return null;
+	}
+	protected int getExperiencePoints(EntityPlayer player) {
+		this.experienceValue = (int) ((float) this.experienceValue * 2.5F);
+
+		return super.getExperiencePoints(player);
 	}
 
 	// Still Need Sounds
@@ -105,11 +112,11 @@ public class EntityLiono extends EntityCreature {
 		return this.attackTimer;
 	}
 
-	/*
-	 * public int getHoldSwordOfOmens(boolean p_70851_1_) {
-	 * this.holdSwordOfOmens = p_70851_1_ ? 400 : 0;
-	 * this.worldObj.setEntityState(this, (byte)11); }
-	 */
+	
+	  public void getHoldSwordOfOmens(boolean p_70851_1_) {
+	  this.holdSwordOfOmens = p_70851_1_ ? 400 : 0;
+	  this.worldObj.setEntityState(this, (byte)11); }
+	 
 
 	public int getHoldSwordOfOmens() {
 		return this.holdSwordOfOmens;
@@ -140,5 +147,9 @@ public class EntityLiono extends EntityCreature {
 
         this.playSound(SoundEvents.ENTITY_IRONGOLEM_ATTACK, 1.0F, 1.0F);
         return flag;
+    }
+	protected boolean canDespawn()
+    {
+        return false;
     }
 }

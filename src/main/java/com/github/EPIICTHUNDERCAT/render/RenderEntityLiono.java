@@ -1,7 +1,7 @@
 package com.github.EPIICTHUNDERCAT.render;
 
 import com.github.EPIICTHUNDERCAT.entity.mobs.EntityLiono;
-import com.github.EPIICTHUNDERCAT.entity.mobs.LionoModel;
+import com.github.EPIICTHUNDERCAT.entity.models.LionoModel;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;

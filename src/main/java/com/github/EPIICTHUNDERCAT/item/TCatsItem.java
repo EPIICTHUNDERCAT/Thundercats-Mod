@@ -9,6 +9,7 @@ public class TCatsItem extends Item{
 	
 	
 	public TCatsItem(String name) {
+		
 		this.setRegistryName(name.toLowerCase());
 		this.setUnlocalizedName(name.toLowerCase());
 		this.setCreativeTab(TCatsCreativeTabs.TCats);

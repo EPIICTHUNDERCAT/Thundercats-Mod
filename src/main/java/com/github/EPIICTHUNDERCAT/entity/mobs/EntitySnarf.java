@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import com.github.EPIICTHUNDERCAT.Reference;
 import com.github.EPIICTHUNDERCAT.Thundercats;
+import com.github.EPIICTHUNDERCAT.init.TCatsSoundHandler;
 import com.google.common.base.Predicate;
 
 import net.minecraft.block.Block;
@@ -58,6 +59,7 @@ public class EntitySnarf extends EntityWolf {
 			DataSerializers.BOOLEAN);
 	private static final DataParameter<Integer> COLLAR_COLOR = EntityDataManager.<Integer>createKey(EntitySnarf.class,
 			DataSerializers.VARINT);
+	//public SoundEvent snarfNoise;
 
 	public static final ResourceLocation LOOT = new ResourceLocation(Reference.ID, "entities/snarf");
 
@@ -66,6 +68,37 @@ public class EntitySnarf extends EntityWolf {
 		this.setSize(0.6F, 0.85F);
 
 	}
+
+	@Override
+	protected SoundEvent getAmbientSound() {
+
+		return TCatsSoundHandler.SNAAARF;
+
+	}
+	@Override
+	protected SoundEvent getHurtSound() {
+		return TCatsSoundHandler.SNARF_SNARF;
+	}
+
+	protected SoundEvent getDeathSound() {
+		return SoundEvents.ENTITY_WOLF_DEATH;
+	}
+	/*
+	 * @Override protected void applyEntityAttributes() {
+	 * super.applyEntityAttributes();
+	 * this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(5.0D)
+	 * ; this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).
+	 * setBaseValue(0.30000001192092896D);
+	 * 
+	 * if (this.isTamed()) {
+	 * this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(
+	 * 20.0D); } else {
+	 * this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(
+	 * 8.0D); }
+	 * 
+	 * this.getAttributeMap().registerAttribute(SharedMonsterAttributes.
+	 * ATTACK_DAMAGE).setBaseValue(2.0D); }
+	 */
 
 	/**
 	 * Will return how many at most can spawn in a chunk at once.
@@ -102,10 +135,19 @@ public class EntitySnarf extends EntityWolf {
 						* (float) Math.PI : ((float) Math.PI / 5F));
 	}
 
+	protected int getExperiencePoints(EntityPlayer player) {
+		this.experienceValue = (int) ((float) this.experienceValue * 2.5F);
+
+		return super.getExperiencePoints(player);
+	}
+
 	/*
 	 * 
 	 * protected Item getDropItem() { return TutorialItems.grimdark_essence; }
 	 * 
 	 */
+	protected boolean canDespawn() {
+		return false;
+	}
 
 }

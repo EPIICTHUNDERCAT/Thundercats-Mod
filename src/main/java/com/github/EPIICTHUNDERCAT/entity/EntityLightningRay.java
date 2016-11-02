@@ -1,10 +1,10 @@
 package com.github.EPIICTHUNDERCAT.entity;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -18,7 +18,7 @@ public class EntityLightningRay extends EntityThrowable {
 
 	public EntityLightningRay(World worldIn) {
 		super(worldIn);
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public EntityLightningRay(World worldIn, EntityLivingBase shooter) {
@@ -38,7 +38,7 @@ public class EntityLightningRay extends EntityThrowable {
 		World world = this.worldObj;
 		int x = this.ticksExisted;
 		if ((this.ticksExisted % 2) == 0) {
-			world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, 0.1, 1.0, 0.3);
+			world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, this.posX, this.posY, this.posZ, 0.1, 1.0, 0.3);
 		}
 
 	}
@@ -47,20 +47,29 @@ public class EntityLightningRay extends EntityThrowable {
 		return 0.0F;
 
 	}
+	
+	//protected EntityLightningBolt Bolt = new EntityLightningBolt(World, lastTickPosX, lastTickPosX, lastTickPosX, inGround);
 
 	@Override
 	protected void onImpact(RayTraceResult result) {
-		World world = this.worldObj;
-		if (result.typeOfHit.equals(result.typeOfHit.ENTITY)) {
-			if (result.entityHit instanceof EntityPlayer && player) {
-				EntityLivingBase entity = (EntityLivingBase) result.entityHit;
-				if (!world.isRemote) {
-					entity.addPotionEffect(new PotionEffect(Potion.getPotionById(9), 100, 1, false, false));
-					entity.addPotionEffect(new PotionEffect(Potion.getPotionById(25), 200, 1, false, false));
-					entity.addPotionEffect(new PotionEffect(Potion.getPotionById(24), 300, 1, false, false));
-					entity.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 500, 5, false, false));
-				}
+		getEntityWorld().addWeatherEffect(new EntityLightningBolt(getEntityWorld(),posX,posY,posZ,false));
+		
+		if (result.entityHit != null && result.entityHit != this.shootingEntity) {
+			result.entityHit.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) this.shootingEntity), 10.0F);
+			for (int j = 0; j < 4; ++j) {
+				this.worldObj.spawnParticle(EnumParticleTypes.SWEEP_ATTACK, this.posX, this.posY, this.posZ, 0.0D, 0.0D,
+						0.0D);
 			}
 		}
+		if (!this.worldObj.isRemote) {
+			this.setDead();
+		}
 	}
+
+	
+
+	//private static void addWeatherEffect(EntityLightningBolt entityLightningBolt) {
+		
+		
+	//}
 }

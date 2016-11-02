@@ -1,7 +1,8 @@
 package com.github.EPIICTHUNDERCAT.item.specialitems;
 
 import com.github.EPIICTHUNDERCAT.entity.EntityLightningRay;
-import com.github.EPIICTHUNDERCAT.item.TCatsItem;
+import com.github.EPIICTHUNDERCAT.init.SwordofOmensItemSword;
+import com.github.EPIICTHUNDERCAT.init.TCatsMaterials;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -18,14 +19,16 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class SwordOfOmens extends TCatsItem{
+public class SwordOfOmens extends SwordofOmensItemSword{
 	
-	public static int lightningDamage;
-	public static int superiorDamage;
+	public static int lightningDamage = 124;
+	public static int superiorDamage = 100;
 	private int uses;
 
 	public SwordOfOmens(String name) {
-		super(name);
+		super(TCatsMaterials.WAR_STONE, name);
+		this.setMaxStackSize(1);
+		this.setMaxDamage(10);
 		if (this.getRegistryName().toString().substring(11).startsWith("superior")) {
 			this.setMaxDamage(superiorDamage);
 		} else {
@@ -79,7 +82,7 @@ public class SwordOfOmens extends TCatsItem{
 							if ((i % 6) == 0) {
 								if (!world.isRemote) {
 									world.playSound((EntityPlayer) null, entity.posX, entity.posY, entity.posZ,
-											SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.NEUTRAL, 1.5F, 10.0F);
+											SoundEvents.ENTITY_LIGHTNING_THUNDER, SoundCategory.NEUTRAL, 1.5F, 10.0F);
 									EntityLightningRay lightning = new EntityLightningRay(world, (EntityLivingBase) entity);
 									lightning.setHeadingFromThrower(entity, entity.rotationPitch, entity.rotationYaw, 0.0F,
 											1.0F, 0.0F);

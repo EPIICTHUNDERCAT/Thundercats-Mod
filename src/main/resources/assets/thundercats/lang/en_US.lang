@@ -1,0 +1,14 @@
+itemGroup.tcats=Thundercats
+
+
+item.sword_of_omens.name=Sword Of Omens
+item.war_stone.name=War Stone
+item.lightning.name=Lightning Item
+item.lightning.desc=For Sword of Omens
+
+
+tile.pink_diamond_block.name=Pink Diamond Block
+
+
+achievement.sopink=SO PINK!
+achievement.sopink.desc=SOOO MUCH PINK! you crafted a pink diamond block you are finished!

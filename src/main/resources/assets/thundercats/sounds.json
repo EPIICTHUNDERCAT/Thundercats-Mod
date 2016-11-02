@@ -1,0 +1,12 @@
+{
+	"snaaarf":
+	{
+	"category": "neutral",
+	"sounds": [ "thundercats:snaaarf" ]
+	},
+	"snarf_snarf":
+	{
+	"category": "neutral",
+	"sounds": [ "thundercats:snarf_snarf" ]
+	}
+}

@@ -6,6 +6,8 @@ import com.github.EPIICTHUNDERCAT.init.TCatsItems;
 import com.github.EPIICTHUNDERCAT.init.TCatsModEntities;
 import com.github.EPIICTHUNDERCAT.render.RenderLightning;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.ISound;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -14,15 +16,13 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 public class ClientProxy extends CommonProxy{
+	private static final Minecraft MC = Minecraft.getMinecraft();
 	
 	public void preInit(FMLPreInitializationEvent preEvent) {
 		super.preInit(preEvent);
 		
-		//RenderManager rm = Minecraft.getMinecraft().getRenderManager();
-		
 		TCatsModEntities.initModels();
 		
-		//RenderingRegistry.registerEntityRenderingHandler(EntitySnarf.class, new RenderEntitySnarf(Minecraft.getMinecraft().getRenderManager()));
 		
 	
 	}
@@ -41,7 +41,15 @@ public class ClientProxy extends CommonProxy{
 		TCatsBlocks.registerRender(event);
 		
 		
+	
 	}
+	public static void playSound(ISound sound) {
+        MC.getSoundHandler().playSound(sound);
+    }
+
+    public static void stopSound(ISound sound) {
+        MC.getSoundHandler().stopSound(sound);
+    }
 	
 	@Override
 	public void VersionCheck(PlayerTickEvent event) {
